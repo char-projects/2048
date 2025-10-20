@@ -78,6 +78,14 @@ body {
     color: #7c6779;
 }
 
+.footer {
+    font-size: 13px;
+    font-weight: bold;
+    color: #7c6779;
+    position: absolute;
+    bottom: 10px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -118,11 +126,11 @@ body {
 .tile[data-value='64'] { background: #7d2b7a; color: #fff; }
 .tile[data-value='128'] { background: #5d2368; color: #fff; font-size: 22px; }
 .tile[data-value='256'] { background: #4a1c5a; color: #fff; font-size: 22px; }
-.tile[data-value='512'] { background: #3a154d; color: #fff; font-size: 20px; }
-.tile[data-value='1024'] { background: #2d1142; color: #fff; font-size: 18px; }
-.tile[data-value='2048'] { background: #221038; color: #fff; font-size: 18px; }
-.tile[data-value='4096'] { background: #1a0d30; color: #fff; font-size: 16px; }
-.tile[data-value='8192'] { background: #120a28; color: #fff; font-size: 16px; }
-.tile[data-value='16384'] { background: #0d0820; color: #fff; font-size: 14px; }
-.tile[data-value='32768'] { background: #080618; color: #fff; font-size: 14px; }
-.tile[data-value='65536'] { background: #040410; color: #fff; font-size: 12px; }
+.tile[data-value='512'] { background: #3a154d; color: #fff; font-size: 22px; }
+.tile[data-value='1024'] { background: #2d1162; color: #fff; font-size: 20px; }
+.tile[data-value='2048'] { background: #221038; color: #fff; font-size: 20px; }
+.tile[data-value='4096'] { background: #1a0d30; color: #fff; font-size: 20px; }
+.tile[data-value='8192'] { background: #120a28; color: #fff; font-size: 20px; }
+.tile[data-value='16384'] { background: #0d0820; color: #fff; font-size: 18px; }
+.tile[data-value='32768'] { background: #080618; color: #fff; font-size: 18px; }
+.tile[data-value='65536'] { background: #040410; color: #fff; font-size: 18px; }
