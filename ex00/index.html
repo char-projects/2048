@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="score-container">
+            <div class="title">2048</div>
+            <div>
+                <div class="score-box">
+                    <div class="label">Score</div>
+                    <div class="value" id="score">0</div>
+                </div>
+                <div class="score-box">
+                    <div class="label">Best</div>
+                    <div class="value" id="best">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="controls-container">
+            <button id="undo-btn" class="controls">Undo</button>
+            <button id="redo-btn" class="controls">Redo</button>
+            <button id="restart" class="controls">New Game</button>
+        </div>
+        <div class="grid-container"></div>
+        <div class="description">Swipe to move. 2 + 2 = 4. Reach 2048.</div>
+    </div>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
