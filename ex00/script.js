@@ -5,6 +5,7 @@ const GRID_CONTAINER = document.querySelector('.grid-container');
 const SCORE_EL = document.getElementById('score');
 const BEST_SCORE_EL = document.getElementById('best');
 const RESTART_BTN = document.getElementById('restart');
+const UNDO_BTN = document.getElementById('undo-btn');
 
 let board = new Array(16).fill(0);
 let score = 0;
@@ -104,6 +105,25 @@ function moveLeft(b) {
 	return { board: out, moved, gained };
 }
 
+function undoMove() {
+	const previousState = JSON.parse(localStorage.getItem('previousState'));
+	if (previousState && previousState.board && previousState.score !== undefined) {
+		board = previousState.board;
+		score = previousState.score;
+		render();
+		return true;
+	}
+	return false;
+}
+
+function saveCurrentState() {
+	const currentState = {
+		board: board.slice(),
+		score: score
+	};
+	localStorage.setItem('previousState', JSON.stringify(currentState));
+}
+
 function move(direction) {
 	let worked = { board: board.slice(), moved: false, gained: 0 };
 	if (direction === 'left') {
@@ -131,6 +151,7 @@ function move(direction) {
 		worked = { board: out, moved, gained };
 	}
 	if (worked.moved) {
+		saveCurrentState();
 		board = worked.board;
 		score += worked.gained;
 		bestScore = Math.max(bestScore, score);
@@ -210,6 +231,7 @@ window.addEventListener('touchend', (e) => {
 });
 
 RESTART_BTN.addEventListener('click', () => startGame());
+UNDO_BTN.addEventListener('click', () => undoMove());
 
 document.addEventListener('DOMContentLoaded', () => {
 	startGame();
