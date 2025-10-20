@@ -262,7 +262,11 @@ window.addEventListener('touchend', (e) => {
 	}
 });
 
-RESTART_BTN.addEventListener('click', () => startGame());
+RESTART_BTN.addEventListener('click', () => {
+	localStorage.setItem('hasWon2048', 'false');
+	startGame();
+});
+
 UNDO_BTN.addEventListener('click', () => undoMove());
 
 document.addEventListener('DOMContentLoaded', () => {
