@@ -178,6 +178,7 @@ function hasMoves(b) {
 }
 
 function checkWin(b) {
+	if (localStorage.getItem('hasWon2048')) return false;
 	return b.some(v => v === 2048);
 }
 
@@ -201,10 +202,41 @@ window.addEventListener('keydown', (e) => {
 		e.preventDefault();
 		const moved = move(dir);
 		if (moved) {
-			if (checkWin(board)) {
-				setTimeout(() => alert('You reached 2048 - you win!'), 50);
+			if (checkWin(board) && !localStorage.getItem('hasWon2048')) {
+				localStorage.setItem('hasWon2048', 'true');
+				let overlay = document.createElement('div');
+				overlay.classList.add('overlay');
+
+				let message = document.createElement('div');
+				message.textContent = 'You Win!';
+				message.classList.add('message');
+
+				overlay.appendChild(message);
+
+				GRID_CONTAINER.classList.add('blurred');
+				document.body.appendChild(overlay);
+
+				overlay.addEventListener('click', () => {
+					document.body.removeChild(overlay);
+					GRID_CONTAINER.classList.remove('blurred');
+				});
 			} else if (!hasMoves(board)) {
-				setTimeout(() => alert('No more moves - game over'), 50);
+				let overlay = document.createElement('div');
+				overlay.classList.add('overlay');
+
+				let message = document.createElement('div');
+				message.textContent = 'Game Over!';
+				message.classList.add('message');
+
+				overlay.appendChild(message);
+
+				GRID_CONTAINER.classList.add('blurred');
+				document.body.appendChild(overlay);
+
+				overlay.addEventListener('click', () => {
+					document.body.removeChild(overlay);
+					GRID_CONTAINER.classList.remove('blurred');
+				});
 			}
 		}
 	}
