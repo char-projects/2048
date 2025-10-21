@@ -178,7 +178,6 @@ function hasMoves(b) {
 }
 
 function checkWin(b) {
-	if (localStorage.getItem('hasWon2048')) return false;
 	return b.some(v => v === 2048);
 }
 
@@ -202,7 +201,7 @@ window.addEventListener('keydown', (e) => {
 		e.preventDefault();
 		const moved = move(dir);
 		if (moved) {
-			if (checkWin(board) && !localStorage.getItem('hasWon2048')) {
+			if (checkWin(board) && localStorage.getItem('hasWon2048') !== 'true') {
 				localStorage.setItem('hasWon2048', 'true');
 				let overlay = document.createElement('div');
 				overlay.classList.add('overlay');
@@ -267,8 +266,12 @@ RESTART_BTN.addEventListener('click', () => {
 	startGame();
 });
 
-UNDO_BTN.addEventListener('click', () => undoMove());
+UNDO_BTN.addEventListener('click', () => {
+	localStorage.setItem('hasWon2048', 'false');
+	undoMove();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
+	localStorage.setItem('hasWon2048', 'false');
 	startGame();
 });
