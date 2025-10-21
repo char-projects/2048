@@ -29,27 +29,8 @@ The primary goal is to create a tile with the value of **2048** by strategically
 
 Success requires planning ahead and maintaining open spaces. My favorite strategy is the snake strategy, where the highest-value tile is kept in the bottom-right corner of the grid. Then, you arrange the next highest tiles to the left of it, continuing in a snake-like pattern starting from the bottom row, then up to the next one (this time filling it from left to right), and so on.
 
-### Clone the project:
+### Run the project:
 ```bash
 git clone https://github.com/char-projects/2048.git
-cd 2048
+# Click on index.html to open it in the browser
 ```
-
-### Options to run it:
-- Python 3 built-in server (works cross-platform):
-
-```bash
-cd /path/to/2048
-python3 -m http.server 8000
-# open http://localhost:8000/ex00/index.html
-```
-
-- Node (npx http-server):
-
-```bash
-cd /path/to/2048
-npx http-server -p 8000
-# open http://localhost:8000/ex00/index.html
-```
-
-- VS Code Live Server: right-click `ex00/index.html` → "Open with Live Server".

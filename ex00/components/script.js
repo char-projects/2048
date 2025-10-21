@@ -1,6 +1,3 @@
-import Grid from './components/grid.js';
-import { createTile } from './components/tile.js';
-
 const GRID_CONTAINER = document.querySelector('.grid-container');
 const SCORE_EL = document.getElementById('score');
 const BEST_SCORE_EL = document.getElementById('best');

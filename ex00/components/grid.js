@@ -1,4 +1,4 @@
-export default function Grid(size = 4) {
+function Grid(size = 4) {
     const frag = document.createDocumentFragment();
     const total = size * size;
     for (let i = 0; i < total; i++) {
