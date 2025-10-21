@@ -32,7 +32,7 @@ Success requires planning ahead and maintaining open spaces. My favorite strateg
 ### Clone the project:
 ```bash
 git clone https://github.com/char-projects/2048.git
-cd 2024
+cd 2048
 ```
 
 ### Options to run it:
